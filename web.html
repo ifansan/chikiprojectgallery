@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Galeri Link Foto (Google Drive)</title>
+  <style>
+    :root{
+      --bg: #0b0b0d;
+      --card: #141418;
+      --red: #e11d48;
+      --red2:#ff2d55;
+      --text:#f5f5f7;
+      --muted:#b6b6bf;
+      --border: rgba(255, 255, 255, .08);
+      --shadow: 0 18px 40px rgba(0,0,0,.45);
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(900px 500px at 15% 0%, rgba(225,29,72,.22), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(255,45,85,.18), transparent 55%),
+        linear-gradient(180deg, #09090b, #0b0b0d);
+      color: var(--text);
+      min-height:100svh;
+      display:flex;
+      justify-content:center;
+      padding: 24px 14px 40px;
+    }
+
+    .wrap{
+      width: min(980px, 100%);
+    }
+
+    header{
+      display:flex;
+      gap: 14px;
+      align-items:flex-start;
+      justify-content:space-between;
+      margin-bottom: 18px;
+    }
+
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(18px, 3.3vw, 28px);
+      letter-spacing: .2px;
+      line-height:1.15;
+    }
+
+    p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .badge{
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      background: rgba(20,20,24,.65);
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    /* Tablet */
+    @media (max-width: 900px){
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Mobile */
+    @media (max-width: 520px){
+      header{ flex-direction:column; align-items:flex-start; }
+      .badge{ width:100%; text-align:center; }
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      position:relative;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(20,20,24,.9), rgba(15,15,18,.9));
+      border-radius: 18px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      transition: transform .18s ease, border-color .18s ease;
+    }
+
+    .card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(225,29,72,.55);
+    }
+
+    /* Thumbnail 1:1 */
+    .thumb{
+      width:100%;
+      aspect-ratio: 1 / 1;
+      background: rgba(255,255,255,.03);
+      display:block;
+      object-fit: cover;
+    }
+
+    .meta{
+      padding: 12px 12px 14px;
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+    }
+
+    .name{
+      margin:0;
+      font-weight: 650;
+      font-size: 14px;
+      display:flex;
+      align-items:center;
+      gap: 8px;
+    }
+
+    .dot{
+      width: 8px; height: 8px;
+      border-radius: 99px;
+      background: radial-gradient(circle at 30% 30%, var(--red2), var(--red));
+      box-shadow: 0 0 0 4px rgba(225,29,72,.15);
+      flex: 0 0 auto;
+    }
+
+    .desc{
+      margin:0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    a.link{
+      text-decoration:none;
+      color: inherit;
+      display:block;
+      outline: none;
+    }
+
+    a.link:focus-visible .card{
+      border-color: rgba(255,45,85,.85);
+      box-shadow: 0 0 0 4px rgba(225,29,72,.22), var(--shadow);
+    }
+
+    .cta{
+      position:absolute;
+      top: 10px;
+      right: 10px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.45);
+      border: 1px solid rgba(255,255,255,.12);
+      font-size: 12px;
+      color: var(--text);
+      backdrop-filter: blur(8px);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <header>
+      <div class="title">
+        <h1>Chiki Project</h1>
+        <p>Kumpulan preview foto sunmori & nyoride.</p>
+      </div>
+      <div class="badge">4 item • klik untuk buka Drive</div>
+    </header>
+
+    <section class="grid">
+      <!-- ITEM 1 -->
+      <a class="link" href="https://drive.google.com/drive/folders/17evlefmYzGKe-lnBvU2v5EGxnHKFZbq3?usp=drive_link" target="_blank" rel="noopener">
+        <article class="card">
+          <span class="cta">Buka</span>
+          <img class="thumb" src="thumbnails/thumbnail1.jpeg" alt="Ciwidey">
+          <div class="meta">
+            <h2 class="name"><span class="dot"></span>Ciwidey</h2>
+            <p class="desc">Sunmori Ciwidey.</p>
+          </div>
+        </article>
+      </a>
+
+      <!-- ITEM 2 -->
+      <a class="link" href="https://drive.google.com/drive/folders/1hshwQp03DWYib6HI5fH8P_v27U9p2ND9?usp=drive_link" target="_blank" rel="noopener">
+        <article class="card">
+          <span class="cta">Buka</span>
+          <img class="thumb" src="thumbnails/thumbnail2.jpeg" alt="Cijapati">
+          <div class="meta">
+            <h2 class="name"><span class="dot"></span>Cijapati</h2>
+            <p class="desc">Sunmori Cijapati.</p>
+          </div>
+        </article>
+      </a>
+
+      <!-- ITEM 3 -->
+      <a class="link" href="https://drive.google.com/drive/folders/1m77zSbnzbyxNW0-IsLD9AiIggtrOnT8v?usp=drive_link" target="_blank" rel="noopener">
+        <article class="card">
+          <span class="cta">Buka</span>
+          <img class="thumb" src="thumbnails/thumbnail3.jpeg" alt="Soroja">
+          <div class="meta">
+            <h2 class="name"><span class="dot"></span>Soroja</h2>
+            <p class="desc">Nyoride Soroja.</p>
+          </div>
+        </article>
+      </a>
+
+      <!-- ITEM 4 -->
+      <a class="link" href="https://wa.me/qr/XRYQJMYQPJT3N1" target="_blank" rel="noopener">
+        <article class="card">
+          <span class="cta">Buka</span>
+          <img class="thumb" src="thumbnails/thumbnail4.png" alt="Whatsapp">
+          <div class="meta">
+            <h2 class="name"><span class="dot"></span>Whatsapp</h2>
+            <p class="desc">Bantuan Via Whatsapp.</p>
+          </div>
+        </article>
+      </a>
+    </section>
+  </main>
+</body>
+</html>
